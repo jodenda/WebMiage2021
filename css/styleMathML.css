@@ -1,0 +1,162 @@
+/*
+
+      Auteur : Joël Dendaletche
+      objectifs :
+          - mise en forme générale des pages du site ;
+          - prototypage des futures feuilles de style autonome ;
+          - partage de ressource pour l'éducation au web 1.0 .
+
+      Cahier des charges : 
+        - indenter de manière à détecter toute erreur d'étourderie ;
+        - documenter toute portion de code originale ;
+        - ...
+
+*/
+
+/* structure d'une page du site en utilisant la méthode flex */
+body 
+{
+  color               :         white           ;
+  background-color    :         black           ;       
+}
+hy
+header 
+{
+  height              :         7%                                ;
+  color               :         rgba(200,200,200,0.6)           ;
+  background-color    :         rgba(55,55,55,0.6)           ;  
+}
+nav 
+{
+
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout 
+source :   https://www.w3schools.com/css/css3_flexbox_responsive.asp     */
+@media (max-width: 800px) 
+{
+    article, aside 
+	{
+        flex: 100%;
+  	}
+}
+section
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+article 
+{
+	  flex: 80%;
+}
+aside  
+{
+	  flex: 20%;
+}
+footer
+{
+  
+}
+
+/**************************************************************************
+                     Style des tableaux
+***************************************************************************/
+table 
+{
+	border : brown groove 10px;
+	padding : 10px;
+	border-collapse : collapse;
+}
+caption 
+{
+	background : rgba(10,10,10,0.5);
+}
+tr, th,td { 
+	padding : 5px;
+	border : white solid 2px;
+	}
+
+/* Numérotation automatique des titres dans les articles .remarque
+   Attention ne fonctionne pas dans repl.it !
+   source : */
+article 
+{
+	color : yellow;
+  /* Set "section" to 0 */
+  counter-reset: section;
+}
+
+article h1 {
+  /* Set "subsection" to 0 */
+  counter-reset: subsection;
+}
+
+article h2 {
+  /* Set "subsection2" to 0 */
+  counter-reset: subsection2;
+}
+
+article h3 {
+  /* Set "subsection3" to 0 */
+  counter-reset: subsection3;
+}
+
+article h4 {
+  /* Set "subsection4" to 0 */
+  counter-reset: subsection4;
+}
+
+article h5 {
+  /* Set "subsection5" to 0 */
+  counter-reset: subsection5;
+}
+
+article h1::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
+
+article h2::before {
+  counter-increment: subsection;
+  content: counter(section) "." counter(subsection) " ";
+}
+
+article h3::before {
+  counter-increment: subsection2;
+  content: counter(section) "." counter(subsection) "." counter(subsection2) " ";
+}
+
+article h4::before {
+  counter-increment: subsection3;
+  content: counter(section) "." counter(subsection) "." counter(subsection2) "." counter(subsection3) " ";
+}
+
+article h5::before {
+  counter-increment: subsection4;
+  content: counter(section) "." counter(subsection) "." counter(subsection2) "." counter(subsection3) "." counter(subsection4) " ";
+}
+
+article h6::before {
+  counter-increment: subsection5;
+  content: counter(section) "." counter(subsection) "." counter(subsection2) "." counter(subsection3) "." counter(subsection4) "." counter(subsection5) " ";
+}
+
+/*************************************************************************************
+*                                                                                    *
+*            classes de styles personnalisés                                         *
+*                                                                                    *
+*************************************************************************************/
+.remarque 
+{
+  font-size         :               40%             ; 
+}
+.remarque::before
+{
+  content : "("             ; 
+}
+.remarque::after
+{
+  content : ")"             ; 
+}
+
+
