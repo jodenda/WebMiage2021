@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>à propos de MathMl : écrire des formules mathématiques en XML</title>
+    <link href="./css/mathML.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>Utilisation de mathML pour mettre en forme et afficher des formules mathématiques complexes <span class="remarque">comme avec <a href="https://fr.wikipedia.org/wiki/LaTeX" title="LaTeX dans Wikipedia" target="_blank">laTeX</a></span></h1>
+<math xmlns = "http://www.w3.org/1998/Math/MathML">
+		
+         <mrow>
+            <mi>A</mi>
+            <mo>=</mo>
+			
+            <mfenced open = "[" close="]">
+			
+               <mtable>
+                  <mtr>
+                     <mtd><msup><mi>x</mi><mn>2</mn></msup></mtd>
+                     <mtd><msub><mi>y</mi><mn>3</mn></msub></mtd>
+                  </mtr>
+					
+                  <mtr>
+                     <mtd><mi>z</mi></mtd>
+                     <mtd><mi>w</mi></mtd>
+                  </mtr>
+               </mtable>
+               
+            </mfenced>
+         </mrow>
+      </math>
+    </header>
+    <section>
+      <article>
+        <h1>balises basiques mn, mo, mi, msup</h1>
+
+<h2>dzgfvg</h2> <h3>dzgfvg</h3> <h4>dzgfvg</h4> <h5>dzgfvg</h5>
+
+	<table><caption>particularités des balises courantes de MathML</caption>
+	    <tr><th>balise MathML</th><th>utilisation</th><th>exemple</th><th>code de l'exemple</th></tr>
+	    <tr><td id="td balise m"><select id="balises math basiques"></select></td>
+		<td id="td def m"></td>
+		<td id="td exemple res m"></td>
+		<td id="td exemple code m"></td>
+	    </tr>	
+	</table>
+          </article> 
+
+	<aside>
+          <h2>exemples</h2>
+          <details><summary>polynôme</summary>
+            <math  xmlns = "http://www.w3.org/1998/Math/MathML">
+              <mn>3</mn>
+              <mo>+</mo>
+              <msup>
+		<mi>x</mi>
+              	<mn>2</mn>
+              </msup>
+              <mo>=</mo>
+              <mn>3</mn>
+</math></details>
+            <br/>
+<details><summary><a href="https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Pythagore" target="_blank">théorème de Pythagore</a></summary>
+		<math  xmlns = "http://www.w3.org/1998/Math/MathML">
+         <mrow>
+            <msup><mi>a</mi><mn>2</mn></msup>
+            <mo>+</mo>
+				
+            <msup><mi>b</mi><mn>2</mn></msup>
+            <mo> = </mo>
+				
+            <msup><mi>c</mi><mn>2</mn></msup>
+         </mrow>
+			
+</math>
+             </details><br/><details><summary>matrice</summary>
+		<math  xmlns = "http://www.w3.org/1998/Math/MathML">
+             <mrow>
+            <mi>A</mi>
+            <mo>=</mo>
+			
+            <mfenced open = "[" close="]">
+			
+               <mtable>
+                  <mtr>
+                     <mtd><mi>x</mi></mtd>
+                     <mtd><mi>y</mi></mtd>
+                  </mtr>
+					
+                  <mtr>
+                     <mtd><mi>z</mi></mtd>
+                     <mtd><mi>w</mi></mtd>
+                  </mtr>
+               </mtable>
+               
+            </mfenced>
+         </mrow>
+        </math>
+          </details>
+
+<br/>
+<details><summary><a href="https://fr.wikipedia.org/wiki/MathML#Un_exemple" target="_blank">solutions des équations du second degré</a></summary>
+<math  xmlns = "http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mrow>
+          <mo>-</mo>
+          <mi>b</mi>
+        </mrow>
+        <mo>&PlusMinus;</mo>
+        <msqrt>
+          <mrow>
+            <msup>
+              <mi>b</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>-</mo>
+            <mrow>
+              <mn>4</mn>
+              <mo>&InvisibleTimes;</mo>
+              <mi>a</mi>
+              <mo>&InvisibleTimes;</mo>
+              <mi>c</mi>
+            </mrow>
+          </mrow>
+        </msqrt>
+      </mrow>
+      <mrow>
+        <mn>2</mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>a</mi>
+      </mrow>
+    </mfrac>
+  </mrow>
+</math></details>
+
+<br/>
+<p id="info" ></p>
+    </aside>
+      
+      <nav>
+      </nav>
+     
+
+  
+    </section>
+    <footer>
+      <h1>ressources :</h1>
+      <ul>
+        <li><a href="https://www.tutorialspoint.com/html5/html5_mathml.htm" title="mathml à tutorialspoint" target="_blank">tutorialspoint</a></li>
+        <li>code exemple de <a href="https://www.w3schools.com/code/tryit.asp?filename=GMIQ9XDRNFGI" title="exemple de numérotation automatiques des balises hn dans les articles" target="_blank">numérotation automatique des titres dans les articles</a> en CSS</li>
+        <li><a href="https://www.w3schools.com/js/js_function_definition.asp" title="fonction auto-appelante" target="_blank">fonction auto-appelante</a></li>
+        <li><a href="" title="" target="_blank"></a></li>
+      </ul>
+    </footer>
+    <script src="./js/mathML.js"></script>
+  </body>
+</html>
