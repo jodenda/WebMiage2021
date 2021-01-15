@@ -20,7 +20,7 @@ article {}
 aside {}
 
 header {
-      background        :  url("./icon/miageToulouse.jpeg");
+      background        :  url("../img/icon/miageToulouse.jpeg");
       height            :  10%; /* de la hauteur de l'écran */ 
 }
 
