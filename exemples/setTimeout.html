@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>exemple d'utilisation de setTimeout(fonction, délai) </title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+<body>
+
+<h2>JavaScript Callback : setTimeout(fonction, délai) pour retarder l'exécution d'une fonction</h2>
+
+<p>Après le clic, attendre deux secondes (2000 millisecondes) pour voir ce qui arrive !</p>
+
+<button>cliquer moi !</button>
+
+<p id="demo1"></p>
+
+<h2>JavaScript routine : setInterval(fonction, délai) pour répéter l'exécution d'une fonction</h2>
+<p id="demo2"></p>
+
+<script>
+var on = true, c = 0, lancer = true;
+
+function start () {
+	if (lancer) {
+		setTimeout(uneFois, 2000);
+		document.getElementsByTagName("button")[0].innerHTML = "stop SVP !";
+	} else {
+		reset();
+	}
+	lancer = !lancer;
+}
+document.getElementsByTagName("button")[0].addEventListener("click", start);
+
+function reset () {
+	on = true; 
+	c = 0;
+	clearInterval(idTimer);
+	document.getElementsByTagName("button")[0].innerHTML = "cliquer encore !";
+}
+
+var idTimer;
+function uneFois() {
+	let reponse = "";
+	c++;
+   	if (on) { reponse = "I love You !!"; }
+  	else { reponse = ""; }
+  	on = !on;
+  	document.getElementById("demo1").innerHTML = reponse + " fait  " + c + " fois.";
+	c--;
+	idTimer = setInterval(xFois, 500);
+}
+function xFois () {
+	let reponse = "";
+	c += 0.5;
+   	if (on) { reponse = "I love You !!" + " fait  " + c + " fois."; }
+  	else { reponse = ""; }
+  	on = !on;
+  	document.getElementById("demo2").innerHTML = reponse ;
+}
+</script>
+
+</body>
+</html>
