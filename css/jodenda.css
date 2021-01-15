@@ -19,6 +19,12 @@ article {}
 
 aside {}
 
-header {}
+header {
+      background        :  url("./icon/miageToulouse.jpeg");
+      height            :  10%; /* de la hauteur de l'écran */ 
+}
 
-footer {}
+footer {
+      color             :           rgb(200,200,200)     ;
+      background        :           rgb(55,55,55         ;
+}
