@@ -1,0 +1,134 @@
+/************************************************************
+*                                                           *
+*           Feuille de style de                             *
+*           Jordan Leclercq                                 *
+*                                                           *
+************************************************************/
+
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', 'Times New Roman';
+}
+
+body {
+    background-color: #dddddd
+}
+
+/* METHOD */
+.text-center {
+    text-align: center;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.row {
+    display: flex;
+    padding: 15px;
+    margin:  15px;
+}
+
+.border-shadow {
+    box-shadow: 10px 5px 5px rgb(175, 175, 175);
+}
+
+.container-fluid {
+    width: 75vw;
+    margin: auto !important;
+}
+
+.col-3 {
+    width: 25%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-12 {
+    width: 100%;
+}
+
+.m-auto {
+    margin: auto !important;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.rounded-border {
+    border-radius: 5px;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+.code-string {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: rgb(177, 97, 6);
+}
+
+.code-special {
+    font-family: 'Courier New', Courier, monospace;
+    color: orange;
+}
+
+.code-var {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(113, 168, 240);
+}
+
+.code-commentary {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}
+
+a:link, a:visited, a:focus, a:active {
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s;
+}
+
+a:hover {
+    transition: all 0.5s;
+    color: blue;
+}
+
+/* CUSTOM */
+p {
+    padding: 15px;
+}
+
+td {
+    width: 33vh;
+    height: 33vh;
+    background-color: white;
+}
+
+tr:nth-child(odd) td:nth-child(odd), tr:nth-child(even) td:nth-child(even) {
+    background-color: black;
+}
+
+tr td:nth-child(3) {
+    background-color: pink !important;
+}
+
+nav .row{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+}
