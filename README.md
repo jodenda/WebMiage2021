@@ -48,6 +48,7 @@ séance 2 2021/01/19)
           
                     - Intro/tuto avec exemples et codes : (sans CDN)
                               - mise au propre, amendements de ce cours/TD/TP avec exercices et corrigés ;
+                              - tutoriel pour comprendre, créer et utiliser des expressions régulières (Regex) ; 
                               - utilisation de bootstrap ;
                               - utilisation de angular js ;
                               - utilisation de three.js ;
