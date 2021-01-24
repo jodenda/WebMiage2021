@@ -40,13 +40,25 @@ séance 1 2021/01/12)
                               
 
 ________________________________________________________________________________________________________________________
-# à voir ou à faire :
 
-séance 2 2021/01/19) 
+séance 2 2021/01/19)  : rappels et cours sur les  notions utiles en CSS
+
+          Bases : combinaison de sélecteurs (nom de balises, classes .maClasse, identifiant #) et de connecteurs   ' ' + >
+          
+          Notions avancées : - pseudo-classes
+                              gestion fine des éléments fils de avec : :nth-child( f(n) )
+          
+          
+                              - pseudo-éléments (5 seulement)
+                              application de ::before et ::after pour créer une numérotation automatique d'un plan
+
+
+
+
 
           Propositions de projets individuels (ou min sous-groupe de 2 à 3 avec tâche et cahier des charges bien défini :
           
-                    - Intro/tuto avec exemples et codes : (sans CDN)
+                    - Intro/tuto avec ________________________________________________________________________________________________________________________exemples et codes : (sans CDN)
                               - mise au propre, amendements de ce cours/TD/TP avec exercices et corrigés ;
                               - tutoriel pour comprendre, créer et utiliser des expressions régulières (Regex) ; 
                               - utilisation de bootstrap ;
@@ -67,4 +79,27 @@ séance 2 2021/01/19)
                               - éditeur de map cliquable (territoire, lexique visuel de langue, ...) ;
                               - cliqueur, 2048 et variantes ;
                               - idée perso ;
-                              
+________________________________________________________________________________________________________________________
+# à voir ou à faire : notions avancées en javascript
+séance 3 2021/01/26)           
+
+Les variables, les types et leur déclarations
+          règles de nommage et bonnes pratiques
+          les types, transtypage automatique ou voulus (parseInt(..), parseFloat(..), .toString()
+          les trois sortes de déclaration var, let, const
+          initialisation (éviter new ...)
+          
+les fonctions :
+          déclaration simple
+          auto appelante
+          fonction fléchée
+          en tant que variable
+          
+les classes et objets
+          définition des attributs                : this.attribut = f( param...) ;
+          définition des méthodes (fonctions) :    this.maMethode = function ( param...) {} ;
+          initialisation avec : monInstanceDObjet = new Objet( listeParamètresFourniAuConstructeur) ;
+          
+          
+          
+          
