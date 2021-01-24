@@ -80,26 +80,41 @@ séance 2 2021/01/19)  : rappels et cours sur les  notions utiles en CSS
                               - cliqueur, 2048 et variantes ;
                               - idée perso ;
 ________________________________________________________________________________________________________________________
-# à voir ou à faire : notions avancées en javascript
+# à voir ou à faire : notions avancées en javascript : résumé => https://www.w3schools.com/jsref/default.asp
 séance 3 2021/01/26)           
 
 Les variables, les types et leur déclarations
           règles de nommage et bonnes pratiques
-          les types, transtypage automatique ou voulus (parseInt(..), parseFloat(..), .toString()
+          portées : "Strict Mode" https://www.w3schools.com/js/js_scope.asp
+          les types,  ; concaténtion ; eval ( expression ) = dangereux
+          transtypage automatique ou voulus (parseInt(..), parseFloat(..), .toString() https://www.w3schools.com/js/js_type_conversion.asp
           les trois sortes de déclaration var, let, const
           initialisation (éviter new ...)
           
 les fonctions :
           déclaration simple
+          arguments : sans, nombre variable, avec valeur initiale
           auto appelante
-          fonction fléchée
+          fonction fléchée => https://www.w3schools.com/js/js_arrow_function.asp (entrées) => { traitement des entrées et ou sortie }
           en tant que variable
           
-les classes et objets
+les classes et objets : https://www.w3schools.com/js/js_classes.asp
           définition des attributs                : this.attribut = f( param...) ;
-          définition des méthodes (fonctions) :    this.maMethode = function ( param...) {} ;
+          définition des méthodes (fonctions) :    this.maMethode = function ( param...) { bloc } ;
           initialisation avec : monInstanceDObjet = new Objet( listeParamètresFourniAuConstructeur) ;
+          héritage
           
+mots réservés : "statements" => https://www.w3schools.com/jsref/jsref_statements.asp
+          les boucles : 
+                    - for (compteur = valInit ; test(compteur) ; compteur modification) { bloc } ;
+                    - while ( test(logique) => continuer ){ bloc } ;
+          
+          les opérations logiques :
+                    - if ( test(logique) { bloc si vrai } else { bloc si faux } ; if else if ...
+                    - switch case => https://www.w3schools.com/js/js_switch.asp
+                    - opérateurs ! (=not) && || 
+                    
+          gestions des erreurs : try catch (nouveau) https://www.w3schools.com/jsref/jsref_try_catch.asp
           
           
           
