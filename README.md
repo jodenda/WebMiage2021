@@ -86,14 +86,15 @@ séance 3 2021/01/26)
 Les variables, les types et leur déclarations
           règles de nommage et bonnes pratiques
           portées : "Strict Mode" https://www.w3schools.com/js/js_scope.asp
-          les types,  ; concaténtion ; eval ( expression ) = dangereux
+          les types,  ; concaténation ; eval ( expression ) = dangereux
           transtypage automatique ou voulus (parseInt(..), parseFloat(..), .toString() https://www.w3schools.com/js/js_type_conversion.asp
           les trois sortes de déclaration var, let, const
-          initialisation (éviter new ...)
+          initialisation juste après la déclaration (éviter new ...)
           
 les fonctions :
           déclaration simple
           arguments : sans, nombre variable, avec valeur initiale
+          anonymes, https://www.w3schools.com/js/js_function_parameters.asp
           auto appelante
           fonction fléchée => https://www.w3schools.com/js/js_arrow_function.asp (entrées) => { traitement des entrées et ou sortie }
           en tant que variable
@@ -106,11 +107,12 @@ les classes et objets : https://www.w3schools.com/js/js_classes.asp
           
 mots réservés : "statements" => https://www.w3schools.com/jsref/jsref_statements.asp
           les boucles : 
-                    - for (compteur = valInit ; test(compteur) ; compteur modification) { bloc } ;
-                    - while ( test(logique) => continuer ){ bloc } ;
+                    - for (compteur = valInit ; test(compteur) ; compteur modification) { bloc } ; for (index in liste) { bloc } ; https://www.w3schools.com/code/tryit.asp?filename=GN2ACC439P7B
+                    - do while et while ( test(logique) => continuer ){ bloc } ;
           
           les opérations logiques :
-                    - if ( test(logique) { bloc si vrai } else { bloc si faux } ; if else if ...
+                    - if ( test(logique) { bloc si vrai } else { bloc si faux } ; if else if ... 
+                    - operateur ternaire : test ? si vrai : si faux ;
                     - switch case => https://www.w3schools.com/js/js_switch.asp
                     - opérateurs ! (=not) && || 
                     
