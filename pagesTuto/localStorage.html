@@ -25,16 +25,22 @@
 <thead>
 <tr><th colspan="3">Observer</th></tr>
 <tr><th>méthode (ou attribut) de l'objet</th><th>exemple</th><th>code js</th></tr>
-<tr><td>attribut : length</td><td><button onclick="contenuLocalStorage()">Get the number of stored items and list all keys for this items</button></td><td></td></tr>
+<tr><td>attribut : <a href="" target="_blank" title="">length</a></td><td><button onclick="contenuLocalStorage()">nombre d'items</button></td><td></td></tr>
+<tr><td><a href="https://www.w3schools.com/jsref/met_storage_key.asp" target="_blank" title="">key()</a></td><td><button onclick="">liste des clefs des items stockés</button></td><td></td></tr>
 </thead>
 <tbody>
 <tr><th colspan="3">Modifier</th></tr>
-<tr><th>méthode</th><th></th></tr>
-<tr><td>clear()</td><td><button onclick="vider();">vider</button>la mémoire locale</td></tr>
+<tr><th>méthode</th><th></th><th></th></tr>
+<tr><td>clear()</td><td><button onclick="vider();">vider</button>la mémoire locale</td><td></td></tr>
 
 
 </tbody>
 </table>
+<p><u>Remarque :</u> il existe en fait deux objets de type <a href="https://www.w3schools.com/jsref/api_storage.asp" target="_blank" title="">storage</a> :</p>
+<ul>
+	<li>localStorage : conserve indéfiniment les données sur le poste client ;</li>
+	<li>sessionStorage : conserve les données seulement sur le temps de la session ; si la fenêtre de l'appli est fermée, les données sont purgées (effacées).</li>
+</ul>
 </fieldset></form>
 <p id="demo"></p>
 <p id="info"></p>
