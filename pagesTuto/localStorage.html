@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- page de démonstration de l'utilisation de l'objet localStorage, qui permet de stocker en local (coté client), jusqu'à 5 méga octets de données.-->
+<html lang = "fr">
+<head>
+	<style>
+    ba::before() { content : "<"; }
+    ba::after() { content : ">"; }
+    ba { color : rgb(50,50,255); }
+    fieldset { background : rgb(200,255,200); /*lightgreen*/ ;}
+    table { text-align : center;
+    	border-collapse : collapse ;
+    }
+    th, td { border : 1px black solid ;}
+    td:nth-child(3n+2) { background : rgb(222,255,222); 		width : 60%; }
+    </style>
+</head>
+<body>
+<article>
+<h1>Les propriétés de l'objet "localStorage</h1>
+
+<p>L'objet <strong>localStorage</strong> fait partie des objets natifs connus par le langage <abbr title="javaScript">js</abbr>. Il permet de stocker en local (coté client), jusqu'à 5 méga octets de données.</p>
+<form>
+<fieldset><legend>Observer et modifier la mémoire locale</legend>
+<table><caption>Objet : "<a href="https://www.w3schools.com/jsref/api_storage.asp" target="_blank">localStorage</a>"</caption>
+<thead>
+<tr><th colspan="3">Observer</th></tr>
+<tr><th>méthode (ou attribut) de l'objet</th><th>exemple</th><th>code js</th></tr>
+<tr><td>attribut : length</td><td><button onclick="contenuLocalStorage()">Get the number of stored items and list all keys for this items</button></td><td></td></tr>
+</thead>
+<tbody>
+<tr><th colspan="3">Modifier</th></tr>
+<tr><th>méthode</th><th></th></tr>
+<tr><td>clear()</td><td><button onclick="vider();">vider</button>la mémoire locale</td></tr>
+
+
+</tbody>
+</table>
+</fieldset></form>
+<p id="demo"></p>
+<p id="info"></p>
+</article>
+<footer>
+	<h1>Référence utiles :</h1>
+    <ul>
+    	<li><a href="https://www.w3schools.com/html/html5_webstorage.asp" target="_blank" title="localStorage vs sessionStorage API">localStorage vs sessionStorage</a></li>
+    	<li><a href="" target="_blank" title=""></a></li>
+    	<li><a href="" target="_blank" title=""></a></li>
+    	<li><a href="" target="_blank" title=""></a></li>
+    	<li><a href="" target="_blank" title=""></a></li>
+    	<li><a href="" target="_blank" title=""></a></li>
+    </ul>
+
+</footer>
+<script>
+var demo = document.getElementById("demo");
+var info = document.getElementById("demo");
+
+function contenuLocalStorage() {
+  var i, x = localStorage.length;
+  for (i=0 ; i <x; i++) {
+  demo.innerHTML += x + " : " + i + " -> " + localStorage.getItem(localStorage.key(i)) + "<br/>";
+  }
+}
+
+function cssToJs (parametreCSS) {
+	let parametreJS = "";
+    
+}
+
+function vider() {
+	localStorage.clear();
+}
+</script>
+</body>
+</html>
