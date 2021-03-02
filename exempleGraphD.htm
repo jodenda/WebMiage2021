@@ -1,0 +1,117 @@
+﻿<!-- Created: 02/01/2021 by Joël Dendaletche -->
+<!DOCTYPE HTML >
+<html lang="fr">
+  <head>
+    <title>Exemple d'application de graphismes 3D </title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  </head>
+  <body>
+
+  <!-- Définition de la fenêtre canvas : zome graphique affichée -->
+  <canvas id="glCanvas" width="640" height="480"></canvas>
+
+
+    <footer>
+        <h1>Sources :</h1>
+        <ul>
+            <li>code de base : <a href="https://developer.mozilla.org/en-US/docs
+/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL" target="_blank" >
+            affichage de la zone canvas en noir</a></li>
+            <li>site officiel de <a href="https://threejs.org/" target="_blank">
+            three.js</a></li>
+            <li><a href="https://developers.google.com/speed/libraries#three.js"
+            target="_blank" >bibliothèques js </a>dans google developers</li>
+            <li><a href="" target="_blank" ></a></li>
+            <li><a href="" target="_blank" ></a></li>
+            <li><a href="" target="_blank" ></a></li>
+        </ul>
+
+    </footer>
+  </body>
+  <!-- utilisation de three.js moteur de rendu 3D -->
+  <script src="https://github.com/mrdoob/three.js"></script>
+  <script type="text/javascript"
+  title="balise qui encadre le code JS https://www.w3schools.com/tags/
+tag_script.asp">
+    // source de  ce qui suit : https://fr.m.wikipedia.org/wiki/Three.js
+    var camera, scene, renderer,
+    geometry, material, mesh;
+
+    init();
+    animate();
+
+    function init() {
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera.position.z = 1000;
+
+        geometry = new THREE.BoxGeometry( 200, 200, 200 );
+        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+        mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        document.body.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame( animate );
+        render();
+    }
+
+    function render() {
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.02;
+
+        renderer.render( scene, camera );
+    }
+//
+// fonction principale (main) pour l'initialisation de l'environnement WebGL
+// Web Graphic Library :  API native de gestion des graphismes 2D et 3D
+//
+function main() {
+  const canvas = document.querySelector("#glCanvas");
+  // équivalent de canvas = document.getElementById("glCanvas");
+  const largeurCanvas = 0.9;
+
+  canvas.title = "largeur de l'écran = " + w + "pixels = 100%  et " +
+      largeurCanvas*100+" % = " + Math.floor(w * largeurCanvas) +
+      "   marge : " + Math.floor((1-largeurCanvas)/2 * w) + "px";
+  canvas.width = Math.floor(largeurCanvas * w);
+  canvas.style.margin = Math.floor((1-largeurCanvas)/2 * w) + "px";
+
+  // Initialize the GL context
+  const gl = canvas.getContext("webgl");
+
+  // Only continue if WebGL is available and working
+  if (gl === null) {
+    alert("Unable to initialize WebGL. Your browser or machine may not"+
+    "support it.");
+    return;
+  }
+
+  // Set clear color to black, fully opaque
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  // Clear the color buffer with specified clear color
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
+// appelé à l'initialisation de la fenêtre
+// window.onload = main;
+
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+
+  </script>
+</html>
