@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Exemple de cryptage symétrique</title>
+<!-- permet l'adaptation à tout type d'écrans : responsive 
+     https://www.w3schools.com/css/css_rwd_viewport.asp      -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+:root {
+	--max : 255 ;
+  	--nivGris : 200;
+    --nivComp : calc(var(--max) - var(--nivGris)); /* attention : mettre un espace entre les opérandes et les opérateurs */
+	--couleur : rgb(var(--nivGris),var(--nivGris),var(--nivGris));
+    --fond : rgb(var(--nivComp),var(--nivComp),var(--nivComp));
+   /**/
+}
+body, .cameleon {
+	color : var(--couleur);
+    background : var(--fond);
+}
+ /* unvisited link */
+a:link { /* bleu clair */
+  color: rgb(var(--nivComp),var(--nivComp),var(--nivGris));
+}
+
+/* visited link */
+a:visited { /* vert clair */
+  color : rgb(var(--nivComp),var(--nivGris),var(--nivComp));
+}
+
+/* mouse over link */
+a:hover { /* rouge clair */
+  color: rgb(var(var(--nivGris),--nivComp),var(--nivComp));
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+} 
+div {
+	border : 1px solid var(--couleur);
+	width : 90%;
+    height : 50px;
+}
+table, td { 
+	border : solid 1px var(--couleur); 
+	text-align : center ;
+}
+td {
+	texte-align : center;
+    width : 25%;
+}
+.cameleon { border : 0; /*width : 3em;*/ }
+.tableauRes { display : none; }
+</style>
+</head>
+<body>
+<h1></h1>
+<p>Click the button to loop through the properties of an object.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let person = {fname:"John", lname:"Doe", age:25}; 
+  
+  let text = "<h2>for (x in objet) {</h2>";
+  
+  text += "<p>objet = {"+person+"}</p>"; // faire un print des propriétés
+  text += "<table><tr><th>x</th><th>objet[x]</th></tr>";
+  let x;
+  for (x in person) {
+    text += "<tr><td> "+ x + "</td><td>" + person[x] + "</td></tr> ";
+  }
+  let liste = ['r', 'tg', 'ljkh'];
+  text += "</table><p></p><h2>for (x in liste) { </h2><p>Liste = [ "+liste+" ]</p><table>" ;
+  for (x in liste) {
+    text += "<tr><td>"+ x + "</td><td>" + liste[x] + "</td></tr>" ;
+  }
+  text += "</table><h2>for (x of liste) { </h2>";
+  for (x of liste) {
+    text += "<br/>" + " x = " + x;
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+// arguments variables : comment faire en js
+x = sumAll(1, 123, 500, 115, 44, 88);
+
+function sumAll() {
+  var i;
+  var sum = 0;
+  for (i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
+</script>
+
+</body>
+</html>

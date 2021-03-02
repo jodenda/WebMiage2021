@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exemple d</title>
+</head>
+<body>
+
+<h1>Utilisation de tableaux associatifs avec des index non numériques </h1>
+<div id="info"></div>
+
+</body>
+<script>
+function $(id) { return document.getElementById(id); }
+"use strict"
+var monnaie = [];
+var clefs = ["Eur","USD","BTC"], c, clef;
+var devises = ["Euro","Dollar US", "Bicoin"];
+var info = $("info");
+var homme = { "Espèce" : "sapiens", "Genre" : "Homo" }, rang;
+
+// construction du tableau associatif
+for (c in clefs) {
+	monnaie[clefs[c]] = devises[c]
+}
+clef = "Eur";
+info.innerHTML += "<p>monnaie."+clef+" = " + monnaie.Eur + "</p>";
+for (clef in monnaie) {
+	info.innerHTML += "<p>monnaie ["+clef+"] = " + monnaie[clef] + "</p>";
+}
+
+for (rang in homme) {
+	info.innerHTML += "<p>homme ["+rang+"] = " + homme[rang] + "</p>";
+}
+info.innerHTML += "<p>homme."+rang+" = " + homme.Genre + "</p>";
+</script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Exemple de cryptage symétrique</title>
+<!-- permet l'adaptation à tout type d'écrans : responsive 
+     https://www.w3schools.com/css/css_rwd_viewport.asp      -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+:root {
+	--max : 255 ;
+  	--nivGris : 200;
+    --nivComp : calc(var(--max) - var(--nivGris)); /* attention : mettre un espace entre les opérandes et les opérateurs */
+	--couleur : rgb(var(--nivGris),var(--nivGris),var(--nivGris));
+    --fond : rgb(var(--nivComp),var(--nivComp),var(--nivComp));
+   /**/
+}
+body, .cameleon {
+	color : var(--couleur);
+    background : var(--fond);
+}
+ /* unvisited link */
+a:link { /* bleu clair */
+  color: rgb(var(--nivComp),var(--nivComp),var(--nivGris));
+}
+
+/* visited link */
+a:visited { /* vert clair */
+  color : rgb(var(--nivComp),var(--nivGris),var(--nivComp));
+}
+
+/* mouse over link */
+a:hover { /* rouge clair */
+  color: rgb(var(var(--nivGris),--nivComp),var(--nivComp));
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+} 
+div {
+	border : 1px solid var(--couleur);
+	width : 90%;
+    height : 50px;
+}
+table, td { 
+	border : solid 1px var(--couleur); 
+	text-align : center ;
+}
+.cameleon { border : 0; /*width : 3em;*/ }
+.tableauRes { display : none; }
+</style>
+</head>
+<body>
+
+<h2>JavaScript Object.defineProperty()</h2>
+
+<p>Cet exemple crée une propriété supplémentaire pour l'objet person instance de Personne.</p>
+
+<p id="demo"></p>
+
+<script>
+let demo = document.getElementById("demo"), i;
+class Personne {
+	// constructeur du type Personne
+    constructor (prenom, nom, langue) {
+    	this.prenom = prenom;
+        this.nom = nom;
+        this.langue = langue;
+    }
+    
+};
+// Crée l'objet person comme instance de la class Personne
+var person = new Personne ("John", "Doe", "EN" );
+// Returns enumerable properties as an array
+let clefs = Object.keys(person), n = clefs.length;
+
+demo.innerHTML += "<br/><hr/><br/>Object.getOwnPropertyNames(object) : " + Object.getOwnPropertyNames(person);
+// première façon de faire : 
+//for(i=0;i<n;i++){ demo.innerHTML += "<br/>" + person[clefs[i]] + " : " +   clefs[i]; }
+// deuxième 
+for (i in clefs) { demo.innerHTML += "<br/>" + clefs[i] + " : " + person[clefs[i]]; }
+
+// ajoute ou change la valeur d'une propriété
+Object.defineProperty(person, "couleurYeux", {value:"Noir"});
+demo.innerHTML += "<br/><hr/>ajoute ou change la valeur d'une propriété : <br/>"+
+"Object.defineProperty(person, 'couleurYeux', {value:'Noir'});<br/>Couleur des yeux : " +person.couleurYeux;
+
+// Returns all properties as an array
+demo.innerHTML += "<br/><hr/><br/>Object.getOwnPropertyNames(object) : " + Object.getOwnPropertyNames(person);
+demo.innerHTML += "<br/><hr/><h3>Parcours des clefs valeurs de l'objet dans sa forme initiale (son type de base = Personne)</h3><br/>";
+for (i in Object.keys(person)) { demo.innerHTML += "<br/>" + clefs[i] + " : " + person[clefs[i]]; }
+demo.innerHTML += "<br/><hr/><h3>Parcours des clefs valeurs de l'objet dans sa forme actualisée (enrichie de couleurYeux )</h3><br/>";
+let listePropActuelles = Object.getOwnPropertyNames(person);
+for (i in listePropActuelles) { demo.innerHTML += "<br/>" + listePropActuelles[i] + " : " + person[listePropActuelles[i]]; }
+demo.innerHTML += "<br/><hr/><br/>";
+demo.innerHTML += "<br/><hr/><br/>";
+demo.innerHTML += "<br/><hr/><br/>";
+// Accessing Properties
+//Object.getOwnPropertyDescriptor(object, property)
+
+
+
+
+
+</script>
+
+</body>
+</html>

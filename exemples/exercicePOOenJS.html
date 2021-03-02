@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Conception orientée objet</title>
+<!-- permet l'adaptation à tout type d'écrans : responsive 
+     https://www.w3schools.com/css/css_rwd_viewport.asp      -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+:root {
+	--max : 255 ;
+  	--nivGris : 200;
+    --nivComp : calc(var(--max) - var(--nivGris)); /* attention : mettre un espace entre les opérandes et les opérateurs */
+	--couleur : rgb(var(--nivGris),var(--nivGris),var(--nivGris));
+    --fond : rgb(var(--nivComp),var(--nivComp),var(--nivComp));
+   /**/
+}
+body, .cameleon {
+	color : var(--couleur);
+    background : var(--fond);
+}
+ /* unvisited link */
+a:link { /* bleu clair */
+  color: rgb(var(--nivComp),var(--nivComp),var(--nivGris));
+}
+
+/* visited link */
+a:visited { /* vert clair */
+  color : rgb(var(--nivComp),var(--nivGris),var(--nivComp));
+}
+
+/* mouse over link */
+a:hover { /* rouge clair */
+  color: rgb(var(var(--nivGris),--nivComp),var(--nivComp));
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+} 
+div {
+    border : 1px solid var(--couleur);
+	width : 90%;
+    padding : 15px;
+}
+table, td { 
+	border : solid 1px var(--couleur); 
+	text-align : center ;
+}
+.cameleon { border : 0; /*width : 3em;*/ }
+.tableauRes { display : none; }
+</style>
+</head><!-------------------------------------------------------------------
+----------------------------------------------------------------------->
+<body>
+
+<h1>Conception orientée objet</h1>
+
+<!-- tout est fait dans le script ! -->
+
+<form id="form"></form>
+
+<!-------------------------------------------------------------------
+----------------------------------------------------------------------->
+<script >
+function debug () { // crée un div de débuggage
+	let debug = document.createElement("div");
+	
+	debug.id = "debug";
+	debug.style.border = "groove 10px orange";
+	debug.style.width = "90%";
+	debug.style.padding = "4%";
+	document.body.appendChild(div);
+}
+// définition de la class (type) Personne
+class Personne {
+	// constructeur (obligatoire)
+	constructor(prenom = "John", nom = "Doe", annee, ville) {
+    	this.prenom = prenom;
+        this.nom = nom;
+    	this.annee = annee;
+        this.ville = ville;
+    }
+    // méthodes
+    age() { // calcul de l'âge actuel
+    let date = new Date();
+    return date.getFullYear() - this.annee;
+    }
+    print(idConteneur = "debug") {
+    	let contenu = "<tr><th>Prénom</th><th>Nom</th><th>Année "+
+    	" de naissance</th><th>Âge actuel</th></tr><tr><td>" + 
+    	this.prenom + "</td><td>" + this.nom + "</td><td>" + this.annee + 
+    	"</td><td>" + this.age() + "</td></tr>"; 
+    	
+        let tableau = creerTableau (idConteneur, "printable");
+    
+    	if ( !document.getElementById(idConteneur) ) { // si le conteneur n'existe pas on en crée un !
+        	let div = document.createElement("div");
+            div.id = (idConteneur == "debug" ? "debug" : idConteneur);
+            tableau.innerHTML = contenu;
+            div.appendChild (tableau) ;
+            document.body.appendChild (div) ;
+            }
+        else {
+            tableau.innerHTML = contenu;
+            document.getElementById(idConteneur).appendChild (tableau) ;
+     // + "<br/>document.getElementById('destroy') : " +document.getElementById("destroy"); 
+            // <table><p>"+Personne.hello(this)+"</p>"
+        }
+    }
+    
+    constructForm (id = "formPersonne") {
+		
+        let contenu = "";
+        
+        if ( !document.getElementById(id) ) { // si le formulaire n'existe pas on en crée un !
+        	let form = document.createElement("form");
+            form.id = (id == "formPersonne" ? "formPersonne" : id);
+            form.innerHTML = contenu;
+            document.body.appendChild (form) ;
+            }
+        else {
+    		document.getElementById(idConteneur).innerHTML = contenu;  
+        }
+        createInput(id, "text", "inp01", "", "saisir le prénom", "0", "100");
+    }
+    
+    // méthode(s) statique(s) = propre au type (non utilisable par les objets)
+    static hello(obj) {
+    	return "<br/>Hello " + obj.nom + " !<br/>";
+    }
+}
+
+function creerTableau (parent = "body", id = "printable") {
+	if ( !document.getElementById(id) ) { // si l'input n'existe pas on en crée un !
+        	table = document.createElement("table");
+            table.id = (id == "printable" ? "printable" : id);
+            if (document.getElementById(parent)) {
+            	document.getElementById(parent).appendChild (table) ;
+            	} 
+            else {
+            	document.body.id = "body";
+                document.getElementById("body").appendChild (table) ;
+            	}
+            return document.getElementById(id);
+            }
+  else {
+    	return document.getElementById(id);
+  }
+}
+
+function createInput(idForm = "form", type = "text", id="inp00", value = "", placeholder = "saisir un texte", min="0", max = "100") {
+  let i, input;
+  // arguments est une liste des paramètres associés à la fonction en entrée
+  // arguments est membres des builtins de js : https://www.w3schools.com/js/js_object_accessors.asp
+  
+  for (i = 0; i < arguments.length; i++) {
+    arguments[i];
+  }
+  if ( !document.getElementById(id) ) { // si l'input n'existe pas on en crée un !
+        	input = document.createElement("input");
+            input.id = (id == "inp00" ? "inp00" : id);
+            //xx.innerHTML = contenu;
+            document.getElementById("form").appendChild (input) ;
+            }
+  else {
+    	input = document.getElementById(id);
+  }
+  input.type = type;
+  input.value = value;
+  input.placeholder = placeholder;
+  input.min = min;
+  input.max = max;
+  input.addEventListener("click", essai);     
+}
+//var myJSON = JSON.stringify(myObj);
+function essai () { alert ("ùlkh"); };
+//---------------------------------------------------------------------------------------
+// déroulement en mode impératif du programme
+ficheJohn = new Personne("John", "Smith", 1969, "Saint Jean de Luz");
+fichePaul = new Personne("Paul", "Dupont", 1971, "Riom");
+//ficheJohn.constructForm ();
+ficheJohn.print();
+fichePaul.print(); // écrase l'impression précédente !
+debug ();
+document.getElementById("debug").innerHTML = "coucou";
+createInput("form", "color", "inp01", "", "saisir le prénom", "0", "100");
+//createInput("form", "range", "inp02", "", "saisir l'âge", "0", "100");
+
+</script>
+</body>
+</html>
