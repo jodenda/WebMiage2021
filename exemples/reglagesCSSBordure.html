@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head> <meta charset="utf-8" />
+</head>
+<body>
+<!------------------------------------------------------
+-------body totalement vide :  à remplir avec JS !    --
+------------------------------------------------------->
+<script>
+/**************************************************************
+*              construction de la page						  *
+***************************************************************/
+document.body.id="body";
+document.title = "étude de la propriété CSS : border-image-slice";
+
+// définition des objets styleXXX
+var styleDiv = { style : "margin:5px;padding:10px;border:groove 10px orange;border-radius:10px;"};
+var styleTab = { style : "margin:5px;padding:10px;border:solid 2px yellow;border-radius:10px;border-collapse:collapse;"};
+var styleCol = { style : "margin:0px;padding:5px;border:solid 1px brown;border-radius:10px;"};
+
+var imgSource = "https://jodenda.github.io/WebMiage2021/img/border/border.png";
+var attrImage = { src : imgSource, style : "float:right;" };
+
+// "popup" de deboguage
+var debug = $c("div", "", "debug", "body", { style:"position:sticky;" } );
+debug.addEventListener("click",function () {$("debug").style.fontSize = "25%"});
+debug.addEventListener("dblclick",function () {$("debug").style.fontSize = "100%"});
+
+var h1_1 = $c("h1","La propriété CSS : border-image-slice", "h1_1", "body", styleDiv);
+var p1 = $c("p","Cette propriété CSS permet d'utiliser une image pour orner une bordure");
+var div1 = $c("div","","div1", "body", styleDiv);
+var sp1  = $c("span", "Image utilisée : ", "sp1", "div1");
+var imgBordure = $c("img", "", "imgBordure", "div1", attrImage );
+$repetEltIn("br", 4, "div1");
+
+var div2 = $c("div", "border-image-slice", "div2", "body", { style : "border: 10px solid transparent;  padding: 15px;  border-image: url("+imgSource+") round;  border-image-slice: 30%;" } );
+
+var tableR = $c("table","<caption>Réglages des paramètres de cette bordure</caption>","tableR", "div2", styleTab);
+var range1 = reglage( 1, "border-image-slice", "borderImageSlice", "%", "tableR", "div2", { type : "range", min : "0", max : "100", value : "30"});
+var range2 = reglage( 2, "border-width", "borderWidth", "px", "tableR", "div2", { type : "range", min : "0", max : "100", value : "10"});
+
+$c("br","","","div2");
+
+var p2 = $c("p", "", "p2", "body");
+var strong1 = $c("strong", "Note:", "strong1", "p2");
+var sp3 = $c("span", "Internet Explorer 10, et ses versions antérieures ne supportent pas la propriété 'border-image-slice' ", "sp3", "p2");
+
+var footer = $c("footer","","footer", "body", styleDiv);
+var h1_2 = $c("h1", "Sources et inspiration :", "h1_2", "footer", styleDiv);
+//////////////////////////////////////////////////////////////////////////////////
+//										Constantes								//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// fonctions de raccourci = alias d'expressions longues ou souvent utilisées    //
+// -------------------------------------------------------------------------    //
+// identification d'un élément par son identifiant
+function $(id) { return document.getElementById(id) } // le ';' final est non nécessaire quand il n'y a qu'une seule expression dans le bloc
+
+// création et affichage d'un element de texte en bloc : p, h, textearea, div, ...
+function $c(typeElt, contenu, id = "facultatif", parentId = "body", attributs = { style : ""} ) {
+  let elt = document.createElement(typeElt);
+  // on affecte l'identifiant si l'élément n'existe pas sinon on lui en donne un original
+  !$(id) ? elt.id = id : elt.id = typeElt + $f(Math.floor(Math.random()*10000),4);
+  for (let attr in attributs) { elt [attr] = attributs [attr] };
+  elt.innerHTML = !contenu ? "" : contenu;
+  $(parentId).appendChild(elt);  // affichage de l'élément
+  return elt;
+}
+
+// raccourci de document.getElementById(id).innerHTML = contenu;
+function $in(id,contenu) { $(id).innerHTML = contenu }
+
+// fonction qui répète l'élément de type t, n fois dans le parent parent
+function $repetEltIn(t, n, parent) {
+	//$in("debug","type = &lt;" + t + "&gt; répété " + n + " fois dans " + parent );
+	for (let i = 0; i < n; i++) $c(t,"","",parent);
+}
+
+// fonction qui renvoie un nombre formaté à nbChiffres (complète avec des zéros)
+function $f(nombre, nbChiffres) { 
+	let texte = "" + nombre; // passage du nombre en string equiv à nombre.toString();
+    let sortie, i, N = texte.length; // nombre de caractères = nombre de chiffres !
+    
+    typeof nombre !== "number" ? sortie = true  : sortie = false;
+    // ou bien
+ // typeof nombre === "number" ? sortie = false : sortie = true;
+    if (N < nbChiffres && !sortie) {  
+    	for (i=0; i < nbChiffres - N; i++) { // ajouts de 0 à gauche
+        	texte = "0" + texte;
+        }
+    }
+    return texte
+}
+// reglage( 1, "border-image-slice", "borderImageSlice", "%", "tableR");
+function reglage( n, proprieteCSS, proprieteCSSenJS, unite, parent, cible, attributs = { type : "range", min : "0", max : "100", value : "30"} ) {
+	let ligne = $c("tr","","ligne",parent);
+    let tdLabel = $c("td", "", "tdLabel", "ligne");
+	$c("label", "valeur en "+unite+" de "+proprieteCSS+" : ", "label"+n, "tdLabel", { for : "range"+n} );
+    let tdInput = $c("td", "", "tdInput", "ligne");
+	$c("input", "", "range"+n, "tdInput", attributs );
+	//$("label"+n)["for"] = "range"+n;
+	$c("span", "valeur = " + $(cible).style[proprieteCSSenJS], "spReglage"+n, "tdInput");
+
+	$("range"+n).addEventListener("input",function () {$(cible).style[proprieteCSSenJS] = $("range"+n).value + unite; $("spReglage"+n).innerHTML = "valeur = " + $(cible).style[proprieteCSSenJS] });
+	return $("range"+n);
+}
+</script>
+</body>
+</html>
