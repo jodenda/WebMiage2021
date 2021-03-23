@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><style>td {padding : 5px; border:pink 2px solid; }
+img { width : 300%;
+	margin : 0px;}
+</style>
+</head>
+<body onload="tirage(fruits, 'demo')">
+
+<p>Cliquer sur le bouton pour faire un tirage et mélanger la liste des fruits.</p>
+
+<button onclick="tirage(fruits, 'demo')">Faire un tirage</button>
+
+<table id="demo"></table>
+<hr/>
+
+<button onclick="tirage(cartes, 'demo2')">Faire un tirage</button>
+
+<table id="demo2"></table>
+<footer>
+ <h2>ressources</h2>
+    <ul>
+      <li>logos unicode de <a 
+		href="http://xahlee.info/comp/unicode_food_drink.html" 
+		target="_blank"> fruits et autres nourritures ;</a></li>
+      <li>symboles unicode du <a 
+	href="http://xahlee.info/comp/unicode_computing_symbols.html" 
+	target="_blank">clavier d'ordinateur ;</a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+    </ul>
+</footer>
+<!-------------------------------------------------------------------
+--------------------------------------------------------------------->
+<script>
+
+var fruits = ["Grapes 🍇", "Peach 🍑", "Cherries 🍒","Banana 🍌", 
+"Orange 🍊", "Red Apple 🍎", "Mango  🥭", "Straberry 🍓", "Pineapple 🍍"];
+var figures = ["as","deux","trois","quatre","cinq","six","sept","huit","neuf","dix","valet","dame","roi"];
+var couleurs = ["Carreau","Trefle","Coeur","Pique"];
+var cartes = [];
+let compteur = 0;
+for(let figure of figures) {
+    for(let couleur of couleurs) {
+	compteur++;
+	cartes.push("<img src='"+figure+couleur+".png'/><br/>carte n° "+compteur);
+	}
+}
+
+Array.prototype.shuffle = function() {
+	// ajout d'une méthode de mélange au hasard à l'objet Array
+  let i, liste = [];
+  /*for (i in this) {
+    liste.push([Math.random(),this[i]]);
+  }*/
+  for (i = 0; i < this.length; i++) liste.push([Math.random(),this[i]]);
+  liste.sort();
+  for (i = 0; i < this.length; i++) this[i] = liste[i][1];
+};
+
+function tirage(liste, idDestination) {
+  liste.shuffle();
+  document.getElementById(idDestination).innerHTML = "<tr><td>" + liste.join("</td><td>") + "</td></tr>";
+}
+</script>
+
+</body>
+</html>
