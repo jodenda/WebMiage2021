@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8" /></head>
+<body>
+  <h2>Gestion du temps</h2>
+  <p id="horaire"></p>
+<h2>Exemple de sorties aléatoires</h2>
+<p>Cliquer pour faire un nouveau tirage</p>
+<input type="button" value="tirage" onclick="tirage();" />
+
+<p id="demo"></p>
+
+  <footer>
+    <h2>ressources</h2>
+    <ul>
+      <li><a href="https://www.toutjavascript.com/demo/momentjs/" target="_blank">tuto sur la librairie moment.js</a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+    </ul>
+
+  </footer>
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>  
+<script>
+document.title = "Exemple de gestion de l'heure et du temps";
+  
+var tab = ["tirage uniforme entre 0 et 1 : Math.random() = ", "tirage uniforme entre 1 et 100 : Math.random()*100+1 = ",
+"tirage uniforme entier entre 1 et 100 : Math.floor(Math.random()*100+1) = ",
+"tirage gaussien m = 10 s = 2.5 : aleaN(10,2.5) = "];
+var fonctions = ["Math.random()","Math.random()*100+1","Math.floor(Math.random()*100+1)","aleaN(10,2.5)" ];
+
+function tirage() {
+	document.getElementById("demo").innerHTML = "<ul>";
+	for (let i in tab) {
+		document.getElementById("demo").innerHTML += "<li>" + tab[i] + eval(fonctions[i])+"</li>";
+	}
+    document.getElementById("demo").innerHTML += "</ul>";
+}
+function aleaN(moyenne = 0, ecartype = 1) {
+	let somme = 0, i;
+    for(i=0; i<12;i++) {
+    	somme += Math.random();
+    }
+    return (somme -6)*ecartype+moyenne;
+}
+document.body.addEventListener("load", tirage);
+  
+function $(id){return document.getElementById(id)}
+
+var processus = setInterval(function(){ $("horaire").innerHTML = moment().format('LTS'); }, 1000);
+</script>
+
+</body>
+</html> 
